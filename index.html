@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!--<script src="lib/ionic/js/ionic.bundle.js"></script>-->
+    <script src="lib/ionic/js/ionic.bundle.js" defer="defer" ></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js" defer="defer"></script>
+    <script src="js/controllers.js" defer="defer"></script>
+    <script src="js/services.js" defer="defer"></script>
+  </head>
+  <body ng-app="starter" ng-controller="rootCtrl">
+  <!--<a class="button button-clear icon ion-ios-arrow-left" ng-click="$ionicGoBack()" >adsfasf</a>-->
+    <div id="a" style="display: block">xxx</div>
+
+    <!--
+      The nav bar that will be updated as we navigate between views.
+    -->
+    <div id="b" style="display: none" >
+
+      <ion-nav-view></ion-nav-view>
+
+    </div>
+
+  </body>
+  <script>
+    (function () {
+      setTimeout(function () {
+        window.document.getElementById("a").style.display = 'none';
+        window.document.getElementById("b").style.display = 'block';
+      },10);
+    })();
+  </script>
+</html>
