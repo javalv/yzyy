@@ -1,0 +1,49 @@
+<ion-content class="multiple-content" scroll="false">
+    <div class="bar bar-header" ng-class = "{'bar-assertive':areaSelect.assertive,
+                                            'bar-positive':areaSelect.positive}">
+        <h1 class="title title-left">选择区域</h1>
+        <button class="button button-clear" style="position: absolute;
+    top: 5px;
+    right: 50px;
+    bottom: 5px;">
+            确认
+        </button>
+        <button class="button button-clear" ng-click="modal.hide()" >
+            取消
+        </button>
+    </div>
+    <div class="list has-header">
+        <div class="region">
+            <label class="item item-input item-select address-label-none address-padding">
+                <div class="input-label">
+                    省份（市）：
+                </div>
+                <select ng-model="myAddress.provinceId" ng-change="provinceChanged()">
+                    <option ng-repeat="province in provinces" value="{{province.regionId}}">
+                        {{province.regionName}}
+                    </option>
+                </select>
+            </label>
+            <label class="item item-input item-select address-label-none address-padding">
+                <div class="input-label">
+                    城市（区）：
+                </div>
+                <select ng-change="cityChanged()" ng-model="myAddress.cityId">
+                    <option ng-repeat="city in citys" value="{{city.regionId}}">{{city.regionName}}
+                    </option>
+                </select>
+            </label>
+            <label class="item item-input item-select address-label-none address-padding">
+                <div class="input-label">
+                    区域（县）：
+                </div>
+                <select ng-model="myAddress.regionId">
+                    <option ng-repeat="region in regions" value="{{region.regionId}}">{{region.regionName}}
+                    </option>
+                </select>
+            </label>
+        </div>
+    </div>
+    <div style="height: 28px"></div>
+</ion-content>
+

@@ -10,7 +10,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
                 url: '/terminal-proxy-publish',
                 templateUrl: 'page/terminal-proxy-publish.html',
                 controller: 'terminalProxyPublishCtrl'
-
             })
 
 

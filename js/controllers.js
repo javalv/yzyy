@@ -1,40 +1,101 @@
 angular.module('starter.controllers', [])
 
-    .controller('rootCtrl', function ($rootScope,$scope) {
+    .controller('rootCtrl', function ($rootScope, $scope, $ionicModal) {
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams, options) {
             console.info(toState)
-            if(toState.name == 'chats'){
+            if (toState.name == 'chats') {
                 $scope.backBtn = 'true';
-            }else{
+            } else {
                 $scope.backBtn = 'true';
             }
         })
+
+        $rootScope.$on('multiple-select-init', function (event,initParams) {
+            $rootScope.multipleSelectShow = initParams;
+            $scope.multipleModal.show();
+        })
+
+        $ionicModal.fromTemplateUrl('multipleModal.html', function (modal) {
+            $scope.multipleModal = modal;
+        }, {
+            animation: 'slide-in-up',
+            focusFirstInput: false
+        });
+
+
+        $rootScope.$on('area-select-init', function (event,initParams) {
+            $rootScope.areaSelectShow = initParams;
+            $scope.areaModal.show();
+        })
+        $ionicModal.fromTemplateUrl('areaModal.html', function (modal) {
+            $scope.areaModal = modal;
+        }, {
+            animation: 'slide-in-up',
+            focusFirstInput: false
+        });
     })
 
-    .controller('DashCtrl', function ($scope) {
+    .controller('terminalProxyPublishCtrl', function ($scope) {
+
+        $scope.multipleSelect = function () {
+            var params = {
+                title: '测试标题1',
+                opts: [
+                    {id: 1, text: '第1项'},
+                    {id: 2, text: '第二项'},
+                    {id: 1, text: '第一项'},
+                    {id: 2, text: '第二项'},
+                    {id: 1, text: '第一项'},
+                    {id: 1, text: '第一项'},
+                    {id: 2, text: '第二项'},
+                    {id: 2, text: '第10项'}
+                ],
+            }
+            $scope.$emit('multiple-select-init',params);
+        }
+
+        $scope.areaSelect = function () {
+            var params = {};
+            $scope.$emit('area-select-init',params);
+        }
+
+        var initSel = function (flag) {
+            $scope.selected_1 = flag == "1" ? {color: 'red'} : {color: 'black'};
+            $scope.selected_2 = flag == "2" ? {color: 'red'} : {color: 'black'};
+        }
+        $scope.click = function (flag) {
+            $scope.isActive = flag;
+            initSel(flag);
+        }
+
+        $scope.isActive = "1";
+        initSel("1");
     })
 
-    .controller('ChatsCtrl', function ($scope, Chats) {
-        // With the new view caching in Ionic, Controllers are only called
-        // when they are recreated or on app start, instead of every page change.
-        // To listen for when this page is active (for example, to refresh data),
-        // listen for the $ionicView.enter event:
-        //
-        //$scope.$on('$ionicView.enter', function(e) {
-        //});
+    .controller('multipleCtrl', function ($rootScope, $scope) {
+        $rootScope.$watch('multipleSelectShow', function (newV) {
+            if(typeof newV == 'undefined' || newV == null){
+                return;
+            }
+            $scope.multipleSelect = {
+                title: newV.title,
+                positive: true,
+                opts: newV.opts
+            }
+        });
 
-        $scope.chats = Chats.all();
-        $scope.remove = function (chat) {
-            Chats.remove(chat);
-        };
     })
 
-    .controller('ChatDetailCtrl', function ($scope, $stateParams, Chats) {
-        $scope.chat = Chats.get($stateParams.chatId);
-    })
+    .controller('areaCtrl', function ($rootScope, $scope) {
+        $rootScope.$watch('areaSelectShow', function (newV) {
+            if(typeof newV == 'undefined' || newV == null){
+                return;
+            }
+            $scope.areaSelect = {
+                title: newV.title,
+                positive: true,
+                opts: newV.opts
+            }
+        });
 
-    .controller('AccountCtrl', function ($scope) {
-        $scope.settings = {
-            enableFriends: true
-        };
     });

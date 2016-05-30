@@ -1,0 +1,24 @@
+<ion-content class="multiple-content" scroll="false">
+    <div class="bar bar-header" ng-class = "{'bar-assertive':multipleSelect.assertive,
+                                            'bar-positive':multipleSelect.positive}">
+        <h1 class="title title-left">{{multipleSelect.title}}</h1>
+        <button class="button button-clear" style="position: absolute;
+    top: 5px;
+    right: 50px;
+    bottom: 5px;">
+            确认
+        </button>
+        <button class="button button-clear" ng-click="modal.hide()" >
+            取消
+        </button>
+    </div>
+    <ul class="list has-header">
+        <li ng-repeat="opt in multipleSelect.opts" class="item item-checkbox checkbox-assertive" ng-click="saveUserSex1()">
+            <label class="checkbox">
+                <input type="checkbox" ng-checked='userInfo.sex == {{opt.id}}'>
+            </label>
+            {{opt.text}}
+        </li>
+    </ul>
+    <div style="height: 28px"></div>
+</ion-content>

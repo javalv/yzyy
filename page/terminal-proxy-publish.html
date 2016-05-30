@@ -1,63 +1,73 @@
 <ion-view view-title="终端代理发布页面">
-  <ion-content>
-    <ion-list>
-      <div class="padding">
-        <div class="item item-divider">
-          <label class="item item-input simple-label">
-            <span class="input-label">基础信息：</span>
-          </label>
+    <div class="bar bar-header bar-assertive">
+        <a class="button button-clear icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></a>
+        <h1 class="title header-title">消费订单</h1>
+    </div>
+    <div class="bar bar-subheader " >
+        <div>
+            <a class="button button-clear button-dark"  ng-click="click('1')">
+                <span>待支付</span>
+            </a>
+            <a class="button button-clear button-dark"  ng-click="click('2')">
+                <span>待发货</span>
+            </a>
         </div>
-        <div class="list">
-          <label class="item item-input simple-label">
-            <span class="input-label">*产品名称:</span>
-            <input type="text" placeholder="产品名称" ng-model="myAddress.consignee">
-          </label>
-          <label class="item item-input simple-label">
-            <span class="input-label">联系方式：</span>
-            <input type="text" placeholder="联系方式" ng-model="myAddress.mobilePhone">
-          </label>
-        </div>
-          <li class="item item-checkbox checkbox-assertive" ng-click="saveUserSex1()">
-            <label class="checkbox simple-label">
-              <input type="checkbox" ng-checked='userInfo.sex ==1'>
-            </label>
-            药品
-            <label class="checkbox simple-label">
-              <input type="checkbox" ng-checked='userInfo.sex ==1'>
-            </label>
-            器材
-          </li>
+        <div class="line line-1"></div>
+    </div>
+    <ion-content class="has-subheader">
+        <ion-list>
+            <div class="padding">
+                <div class="item item-divider">
+                    <label class="item item-input simple-label">
+                        <span class="input-label">基础信息：</span>
+                    </label>
+                </div>
+                <div class="list">
+                    <label class="item item-input simple-label">
+                        <span class="input-label">*产品名称:</span>
+                        <input type="text" placeholder="产品名称" ng-model="myAddress.consignee">
+                    </label>
+                    <label class="item item-input simple-label">
+                        <span class="input-label">联系方式：</span>
+                        <input type="text" placeholder="联系方式" ng-model="myAddress.mobilePhone">
+                    </label>
+                </div>
+                <li class="item item-checkbox checkbox-assertive" ng-click="saveUserSex1()">
+                    <label class="checkbox simple-label">
+                        <input type="checkbox" ng-checked='userInfo.sex ==1'>
+                    </label>
+                    药品
+                    <label class="checkbox simple-label">
+                        <input type="checkbox" ng-checked='userInfo.sex ==1'>
+                    </label>
+                    器材
+                </li>
+            </div>
+        </ion-list>
+        <ion-list>
+            <div class="item item-divider item-assertive">基础信息</div>
+            <div class="item">
+                <label class="item item-input simple-label">
+                    <span class="input-label">*产品名称:</span>
+                    <input type="text" placeholder="产品名称" ng-model="myAddress.consignee">
+                </label>
+                <label class="item item-input simple-label">
+                    <span class="input-label">*产品名称:</span>
+                    <input type="text" placeholder="产品名称" ng-model="myAddress.consignee">
+                </label>
+            </div>
 
+        </ion-list>
 
-      </div>
-      <ion-list>
-        <div class="item item-divider">基础信息</div>
-        <div class="item">
-          <label class="item item-input simple-label">
-            <span class="input-label">*产品名称:</span>
-            <input type="text" placeholder="产品名称" ng-model="myAddress.consignee">
-          </label>
-          <label class="item item-input simple-label">
-            <span class="input-label">*产品名称:</span>
-            <input type="text" placeholder="产品名称" ng-model="myAddress.consignee">
-          </label>
-        </div>
+        <ion-list>
+            <div class="item item-divider item-assertive">基础信息</div>
+            <div class="item">
+                <button class="button button-assertive" ng-click="multipleSelect()">adfasdf</button>
+                <button class="button button-full button-bar-inline" ng-click="areaSelect()" >asdfasdfasd</button>
+            </div>
+        </ion-list>
 
-      </ion-list>
-      <ion-list>
-        <div class="item item-divider item-assertive">基础信息</div>
-        <div class="item">
-          <label class="item item-input simple-label">
-            <span class="input-label">*产品名称:</span>
-            <input type="text" placeholder="产品名称" ng-model="myAddress.consignee">
-          </label>
-          <label class="item item-input simple-label">
-            <span class="input-label">*产品名称:</span>
-            <input type="text" placeholder="产品名称" ng-model="myAddress.consignee">
-          </label>
-        </div>
-
-      </ion-list>
-
-  </ion-content>
+    </ion-content>
 </ion-view>
+
+
