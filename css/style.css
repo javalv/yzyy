@@ -26,7 +26,8 @@
     display: block;
     background: red;
     height: 2px;
-    width: 100%;
+    width: 50%;
+    top:88px;
     transition: margin-left 0.6s;
     -webkit-transition: margin-left 0.6s;
     -o-transition: margin-left 0.6s;
@@ -34,7 +35,7 @@
 }
 
 .line-1{
-    /*margin-left: 0%;*/
+    margin-left: 0%;
 }
 
 .line-2{

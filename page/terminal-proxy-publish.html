@@ -1,27 +1,22 @@
 <ion-view view-title="终端代理发布页面">
     <div class="bar bar-header bar-assertive">
-        <a class="button button-clear icon ion-ios-arrow-left" ng-click="$ionicGoBack()"></a>
-        <h1 class="title header-title">消费订单</h1>
+        <h1 class="title header-title">发布企业招商信息</h1>
     </div>
-    <div class="bar bar-subheader " >
-        <div>
-            <a class="button button-clear button-dark"  ng-click="click('1')">
-                <span>待支付</span>
+    <div class="bar bar-subheader ">
+        <div class="button-bar">
+            <a class="button button-clear button-dark" ng-style="selected_1" ng-click="click('1')">
+                <span>医院</span>
             </a>
-            <a class="button button-clear button-dark"  ng-click="click('2')">
-                <span>待发货</span>
+            <a class="button button-clear button-dark" ng-style="selected_2" ng-click="click('2')">
+                <span>药店</span>
             </a>
         </div>
-        <div class="line line-1"></div>
     </div>
-    <ion-content class="has-subheader">
+    <div class="line" ng-class="{'1': 'line line-1', '2': 'line line-2' }[isActive] " style="position: absolute"></div>
+    <ion-content class="has-subheader" style="top:91px">
         <ion-list>
+            <div class="item item-divider item-assertive">基础信息</div>
             <div class="padding">
-                <div class="item item-divider">
-                    <label class="item item-input simple-label">
-                        <span class="input-label">基础信息：</span>
-                    </label>
-                </div>
                 <div class="list">
                     <label class="item item-input simple-label">
                         <span class="input-label">*产品名称:</span>
@@ -31,21 +26,33 @@
                         <span class="input-label">联系方式：</span>
                         <input type="text" placeholder="联系方式" ng-model="myAddress.mobilePhone">
                     </label>
+                    <label class="item item-input item-select simple-label">
+                        <div class="input-label">
+                            产品类型：
+                        </div>
+                        <select ng-model="type.id" ng-change="typeIdChanged()" >
+                            <option ng-repeat="item in typeIds" value="{{item.id}}">
+                                {{item.name}}
+                            </option>
+                        </select>
+                    </label>
                 </div>
-                <li class="item item-checkbox checkbox-assertive" ng-click="saveUserSex1()">
-                    <label class="checkbox simple-label">
-                        <input type="checkbox" ng-checked='userInfo.sex ==1'>
+
+                <div class="list" ng-show="typeId_1">
+                    <label class="item item-input simple-label">
+                        <span class="input-label">*产品名称:</span>
+                        <input type="text" placeholder="产品名称" ng-model="myAddress.consignee">
                     </label>
-                    药品
-                    <label class="checkbox simple-label">
-                        <input type="checkbox" ng-checked='userInfo.sex ==1'>
+                    <label class="item item-input simple-label">
+                        <span class="input-label">联系方式：</span>
+                        <input type="text" placeholder="联系方式" ng-model="myAddress.mobilePhone">
                     </label>
-                    器材
-                </li>
+                </div>
+
             </div>
         </ion-list>
         <ion-list>
-            <div class="item item-divider item-assertive">基础信息</div>
+            <div class="item item-divider item-assertive">产品优势</div>
             <div class="item">
                 <label class="item item-input simple-label">
                     <span class="input-label">*产品名称:</span>
@@ -60,12 +67,17 @@
         </ion-list>
 
         <ion-list>
-            <div class="item item-divider item-assertive">基础信息</div>
+            <button class="button button-assertive button-full">确认提交</button>
+        </ion-list>
+
+        <ion-list>
+            <div class="item item-divider item-assertive">招商信息</div>
             <div class="item">
                 <button class="button button-assertive" ng-click="multipleSelect()">adfasdf</button>
-                <button class="button button-full button-bar-inline" ng-click="areaSelect()" >asdfasdfasd</button>
+                <button class="button button-full button-bar-inline" ng-click="areaSelect()">asdfasdfasd</button>
             </div>
         </ion-list>
+
 
     </ion-content>
 </ion-view>
