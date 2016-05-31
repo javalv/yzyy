@@ -15,6 +15,15 @@
     <script src="js/app.js" defer="defer"></script>
     <script src="js/controllers.js" defer="defer"></script>
     <script src="js/services.js" defer="defer"></script>
+    <script src="js/directives.js" defer="defer"></script>
+    <script src="js/common/common.js" defer="defer"></script>
+    <script src="js/common/context.js" defer="defer"></script>
+    <script src="js/common/contextManager.js" defer="defer"></script>
+    <script src="js/terminalProxy/terminalProxyPublishCtrl.js" defer="defer"></script>
+    <script src="js/terminalProxy/terminalProxyPublishService.js" defer="defer"></script>
+    <script src="js/terminalProxy/terminalProxyQueryCtrl.js" defer="defer"></script>
+    <script src="js/terminalProxy/terminalProxyQueryService.js" defer="defer"></script>
+
 </head>
 <body ng-app="starter" ng-controller="rootCtrl">
 <!--<a class="button button-clear icon ion-ios-arrow-left" ng-click="$ionicGoBack()" >adsfasf</a>-->
@@ -47,6 +56,12 @@
     </div>
 </script>
 
+<!-- 大数据多选 -->
+<script id="multiplePlusModal.html" type="text/ng-template">
+    <div class="modal multiple-modal" ng-controller="multiplePlusCtrl">
+        <div ng-include="'page/multiplePlus.html'"></div>
+    </div>
+</script>
 
 <!-- 联动组件 -->
 <script id="areaModal.html" type="text/ng-template">

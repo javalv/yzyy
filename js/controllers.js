@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('root.controllers', [])
 
     .controller('rootCtrl', function ($rootScope, $scope, $ionicModal) {
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams, options) {
@@ -10,6 +10,7 @@ angular.module('starter.controllers', [])
             }
         })
 
+        //多选
         $rootScope.$on('multiple-select-init', function (event,initParams) {
             $rootScope.multipleSelectShow = initParams;
             $scope.multipleModal.show();
@@ -23,6 +24,20 @@ angular.module('starter.controllers', [])
         });
 
 
+        //多列表多选
+        $rootScope.$on('multiple-plus-select-init', function (event,initParams) {
+            $rootScope.multiplePlusSelectShow = initParams;
+            $scope.multiplePlusModal.show();
+        })
+
+        $ionicModal.fromTemplateUrl('multiplePlusModal.html', function (modal) {
+            $scope.multiplePlusModal = modal;
+        }, {
+            animation: 'slide-in-up',
+            focusFirstInput: false
+        });
+
+        //地区联动
         $rootScope.$on('area-select-init', function (event,initParams) {
             $rootScope.areaSelectShow = initParams;
             $scope.areaModal.show();
@@ -35,67 +50,22 @@ angular.module('starter.controllers', [])
         });
     })
 
-    .controller('terminalProxyPublishCtrl', function ($scope) {
-
-        $scope.multipleSelect = function () {
-            var params = {
-                title: '测试标题1',
-                opts: [
-                    {id: 1, text: '第1项'},
-                    {id: 2, text: '第二项'},
-                    {id: 1, text: '第一项'},
-                    {id: 2, text: '第二项'},
-                    {id: 1, text: '第一项'},
-                    {id: 1, text: '第一项'},
-                    {id: 2, text: '第二项'},
-                    {id: 2, text: '第10项'}
-                ],
+    .controller('multipleCtrl', function ($rootScope, $scope) {
+        $rootScope.$watch('multipleSelectShow', function (newV) {
+            if(typeof newV == 'undefined' || newV == null){
+                return;
             }
-            $scope.$emit('multiple-select-init',params);
-        }
-
-        $scope.areaSelect = function () {
-            var params = {};
-            $scope.$emit('area-select-init',params);
-        }
-
-        var initSel = function (flag) {
-            $scope.selected_1 = flag == "1" ? {color: 'red'} : {color: 'black'};
-            $scope.selected_2 = flag == "2" ? {color: 'red'} : {color: 'black'};
-        }
-        $scope.click = function (flag) {
-            $scope.isActive = flag;
-            initSel(flag);
-        }
-
-        $scope.isActive = "1";
-        initSel("1");
-
-        $scope.type = {
-            id:'1'
-        };
-        $scope.typeIds = [{
-            id:'1',
-            name:'药品'
-        },{
-            id:'2',
-            name:'器械'
-        }];
-        $scope.typeIdChanged = function () {
-            var typeId = $scope.type.id;
-            if(typeId == '1'){
-                $scope.typeId_1 = true;
-            }else{
-                $scope.typeId_1 = false;
+            $scope.multipleSelect = {
+                title: newV.title,
+                positive: true,
+                opts: newV.opts
             }
-        }
-
-
+        });
 
     })
 
-    .controller('multipleCtrl', function ($rootScope, $scope) {
-        $rootScope.$watch('multipleSelectShow', function (newV) {
+    .controller('multiplePlusCtrl', function ($rootScope, $scope) {
+        $rootScope.$watch('multiplePlusSelectShow', function (newV) {
             if(typeof newV == 'undefined' || newV == null){
                 return;
             }

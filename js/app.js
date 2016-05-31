@@ -1,5 +1,8 @@
 // Ionic Starter App
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+var app = angular.module('starter', ['ionic','services','directives','context','contextManager',
+    'root.controllers',
+    'terminalProxyPublish.controllers','terminalProxyPublish.service',
+    'terminalProxyQuery.controllers','terminalProxyQuery.service'])
 
     .config(function ($stateProvider, $urlRouterProvider) {
 
