@@ -41,3 +41,28 @@
 .line-2{
     margin-left: 50%;
 }
+
+.color-red{
+    color: red !important;
+}
+
+.color-black{
+    color: black !important;;
+}
+
+.border-clear{
+    border: none;
+}
+
+.button.multiple-select{
+    min-height: 0px;
+    line-height: 34px;
+    right:0px;
+    position: absolute;
+    /*width: 200px;*/
+}
+
+.publish-padding{
+    padding-top: 3px;
+    padding-right: 7px;
+}

@@ -4,19 +4,19 @@
     </div>
     <div class="bar bar-subheader ">
         <div class="button-bar">
-            <a class="button button-clear button-dark" ng-class="{'1': 'color-red', '2': 'color-black' }[switchType.tabType]" ng-click="switchClick('1')">
+            <a class="button button-clear button-dark" ng-style="selected_1" ng-click="click('1')">
                 <span>医院</span>
             </a>
-            <a class="button button-clear button-dark" ng-class="{'2': 'color-red', '1': 'color-black' }[switchType.tabType]" ng-click="switchClick('2')">
+            <a class="button button-clear button-dark" ng-style="selected_2" ng-click="click('2')">
                 <span>药店</span>
             </a>
         </div>
     </div>
-    <div class="line" ng-class="{'1': 'line line-1', '2': 'line line-2' }[switchType.tabType] " style="position: absolute"></div>
+    <div class="line" ng-class="{'1': 'line line-1', '2': 'line line-2' }[isActive] " style="position: absolute"></div>
     <ion-content class="has-subheader" style="top:91px">
         <ion-list>
-            <div class="item item-divider item-assertive">代理人信息</div>
-            <div class="publish-padding">
+            <div class="item item-divider item-assertive">基础信息</div>
+            <div class="padding">
                 <div class="list">
                     <label class="item item-input item-select simple-label">
                         <div class="input-label">
@@ -30,54 +30,35 @@
                     </label>
 
                     <label class="item item-input simple-label">
-                        <span class="input-label">
-                            负责区域：
-                        </span>
-                        <button class="button button-bar-inline multiple-select"
-                                ng-click="doAreaSelect()">点击选择</button>
+                        <span class="input-label">*产品名称:</span>
+                        <input type="text" placeholder="产品名称" ng-model="myAddress.consignee">
                     </label>
-
-                    <label class="item item-input item-select simple-label">
-                        <div class="input-label">
-                            主要负责医院的类别：
-                        </div>
-                        <select ng-model="data.hospitalType" >
-                            <option ng-repeat="item in proxyOptions" value="{{item.id}}">
-                                {{item.text}}
-                            </option>
-                        </select>
+                    <label class="item item-input simple-label">
+                        <span class="input-label">联系方式：</span>
+                        <input type="text" placeholder="联系方式" ng-model="myAddress.mobilePhone">
                     </label>
                     <label class="item item-input item-select simple-label">
                         <div class="input-label">
-                            主要负责医院的级别：
+                            产品类型：
                         </div>
-                        <select ng-model="data.hospitalType" >
-                            <option ng-repeat="item in proxyOptions" value="{{item.id}}">
-                                {{item.text}}
+                        <select ng-model="type.id" ng-change="typeIdChanged()" >
+                            <option ng-repeat="item in typeIds" value="{{item.id}}">
+                                {{item.name}}
                             </option>
                         </select>
                     </label>
-
-                    <label class="item item-input simple-label">
-                        <span class="input-label">
-                            主要医院列举：
-                        </span>
-                        <button class="button button-bar-inline multiple-select"
-                                ng-click="doAreaSelect()">点击选择</button>
-                    </label>
-
-                    <label class="item item-input simple-label">
-                        <span class="input-label">
-                            目前主要负责的科室：
-                        </span>
-                        <button class="button button-bar-inline multiple-select"
-                                ng-click="doMajorOfficesSelect()">点击选择</button>
-                    </label>
-
-
                 </div>
 
-
+                <div class="list" ng-show="typeId_1">
+                    <label class="item item-input simple-label">
+                        <span class="input-label">*产品名称:</span>
+                        <input type="text" placeholder="产品名称" ng-model="myAddress.consignee">
+                    </label>
+                    <label class="item item-input simple-label">
+                        <span class="input-label">联系方式：</span>
+                        <input type="text" placeholder="联系方式" ng-model="myAddress.mobilePhone">
+                    </label>
+                </div>
 
             </div>
         </ion-list>

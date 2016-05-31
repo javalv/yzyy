@@ -126,8 +126,23 @@ angular.module("services", [])
 
         this.$get = function ($rootScope,$timeout) {
 
-            var initMapping = {};
+
             var service = {};
+
+            var initMapping = {};
+            var doInit = function ($scope,init) {
+                if(init){
+                    var key = $scope.$id;
+                    var times = initMapping[key];
+                    if(typeof times == 'undefined' || times == null){//第一次
+                        initMapping[key] = 1;
+                        init();
+                    }
+                    else{
+                        initMapping[key] = initMapping[key] + 1;
+                    }
+                }
+            }
 
             /**
              *
@@ -139,23 +154,15 @@ angular.module("services", [])
              */
             service.$ready = function ($scope,init,load,refresh,mode) {
 
-                if(init){
-                    var key = $scope.id;
-                    var times = initMapping[key];
-                    if(typeof times == 'undefined' || times == null){//第一次
-                        initMapping[key] = 1;
-                        init();
-                    }
-                    else{
-                        initMapping[key] = initMapping[key] + 1;
-                    }
-                }
-
                 var interval = 1000;
                 //默认立即执行
                 if(typeof(mode) == 'undefined' || mode == LOADMODE.IMMEDIATELY){
+
+                    doInit($scope,init);
                     load();
+                    refresh();
                     return ;
+
                 }else{
                     if(mode == LOADMODE.LONG){
                         interval == 1000;
@@ -165,6 +172,8 @@ angular.module("services", [])
                 }
 
                 $timeout(function(){
+
+                    doInit($scope,init);
 
                     load();
 

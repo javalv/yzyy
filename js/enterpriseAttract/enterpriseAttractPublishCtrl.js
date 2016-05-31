@@ -6,23 +6,7 @@ angular.module('terminalProxyPublish.controllers', [])
             //init
             function () {
 
-                $scope.data = {
-                    proxy:'1'
-                };
-
-                //选择导致内容切换
-                $scope.switchType = {
-
-                    //产品类型(药品、器械) 该页面暂时没有
-                    productType:1,
-                    //tab (医院/药店)
-                    tabType:1,
-
-                    //医院
-                    hospital:true,
-                    //药房
-                    pharmacy:false
-                };
+                $scope.data = {};
 
                 //代理人类型: 药品公司 、器械公司 、业务代表、 自然人 (单选)
                 $scope.proxyOptions = [{
@@ -75,24 +59,9 @@ angular.module('terminalProxyPublish.controllers', [])
 
 
             },
-
             //load
             function () {
-
-                //医院/药店切换
-                $scope.switchClick = function (flag) {
-                    $scope.switchType.tabType = flag;
-
-                    if(flag == '1'){
-                        $scope.switchType.hospital = true;
-                        $scope.switchType.pharmacy = false;
-                    }else{
-                        $scope.switchType.hospital = false;
-                        $scope.switchType.pharmacy = true;
-                    }
-
-                }
-
+                var initSel;
                 //代理人类型
                 $scope.doProxySelect = function () {
                     var data = $scope.data.proxy;
@@ -101,8 +70,10 @@ angular.module('terminalProxyPublish.controllers', [])
 
                 //目前负责的区域：省份（直辖市）、  市（勾选，单选）*
                 $scope.doAreaSelect = function () {
-                    var initParams = {};
-                    $rootScope.areaShow(initParams,'doAreaSelect');
+                    var params = {
+
+                    };
+
                 }
 
                 //主要负责医院的类别 ：城市医院、 城市社区、 县级医院、第三终端(单选)*
@@ -167,6 +138,49 @@ angular.module('terminalProxyPublish.controllers', [])
 
 
 
+                $scope.areaSelect = function () {
+                    var params = {};
+                    $scope.$emit('area-select-init', params);
+                }
+
+                initSel = function (flag) {
+                    $scope.selected_1 = flag == "1" ? {color: 'red'} : {color: 'black'};
+                    $scope.selected_2 = flag == "2" ? {color: 'red'} : {color: 'black'};
+                }
+
+                $scope.click = function (flag) {
+                    $scope.isActive = flag;
+                    initSel(flag);
+                }
+
+                $scope.type = {
+                    id: '1'
+                };
+
+                $scope.typeIds = [{
+                    id: '1',
+                    name: '药品'
+                }, {
+                    id: '2',
+                    name: '器械'
+                }];
+
+                $scope.typeIdChanged = function () {
+                    var typeId = $scope.type.id;
+                    if (typeId == '1') {
+                        $scope.typeId_1 = true;
+                    } else {
+                        $scope.typeId_1 = false;
+                    }
+                }
+
+                //选择导致内容切换
+                $scope.switchType = {
+                    //产品类型(药品、器械) 该页面暂时没有
+                    productType:1,
+                    //tab (医院/药店)
+                    tabType:1
+                };
             },
             //refresh
             function () {
