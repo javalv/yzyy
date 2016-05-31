@@ -18,6 +18,17 @@
             <div class="item item-divider item-assertive">基础信息</div>
             <div class="padding">
                 <div class="list">
+                    <label class="item item-input item-select simple-label">
+                        <div class="input-label">
+                            代理人类型：
+                        </div>
+                        <select ng-model="data.proxy" ng-change="doProxySelect()" >
+                            <option ng-repeat="item in proxyOptions" value="{{item.id}}">
+                                {{item.text}}
+                            </option>
+                        </select>
+                    </label>
+
                     <label class="item item-input simple-label">
                         <span class="input-label">*产品名称:</span>
                         <input type="text" placeholder="产品名称" ng-model="myAddress.consignee">

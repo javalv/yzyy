@@ -1,58 +1,140 @@
 angular.module('terminalProxyPublish.controllers', [])
 
-    .controller('terminalProxyPublishCtrl', ['$scope', '$switchLoad', function ($scope, $switchLoad) {
+    .controller('terminalProxyPublishCtrl', ['$scope','$rootScope','$switchLoad', function ($scope, $rootScope , $switchLoad) {
 
-        var initSel;
         $switchLoad.$ready($scope,
-            //加载ctrl
+            //init
             function () {
 
-                //目前主要负责的科室
-                $scope.doMajorOfficesSelect1 = function () {
-                    var params = {
-                        title: '测试标题1',
-                        opts: [
-                            {id: 1, text: '第1项'},
-                            {id: 2, text: '第二项'},
-                            {id: 1, text: '第一项'},
-                            {id: 2, text: '第二项'},
-                            {id: 1, text: '第一项'},
-                            {id: 1, text: '第一项'},
-                            {id: 2, text: '第二项'},
-                            {id: 2, text: '第10项'}
-                        ],
-                    }
-                    $scope.$emit('multiple-select-init', params);
+                $scope.data = {};
+
+                //代理人类型: 药品公司 、器械公司 、业务代表、 自然人 (单选)
+                $scope.proxyOptions = [{
+                    id: '1',
+                    text: '药品公司'
+                }, {
+                    id: '2',
+                    text: '器械公司'
+                }, {
+                    id: '3',
+                    text: '业务代表'
+                }, {
+                    id: '4',
+                    text: '自然人'
+                }];
+
+                $scope.officesOptions = [
+                    {sign:"内科",data:[
+                        {id: 1, text: '呼吸内科'},
+                        {id: 2, text: '心内科'},
+                        {id: 1, text: '神内科'},
+                        {id: 2, text: '消化科'},
+                        {id: 1, text: '血液科'},
+                        {id: 1, text: '肾病科'},
+                        {id: 2, text: '内分泌科'},
+                        {id: 1, text: '风湿免疫科'}
+                    ]},
+                    {sign:"外科",data:[
+                        {id: 1, text: '呼吸内科'},
+                        {id: 2, text: '心内科'},
+                        {id: 1, text: '神内科'},
+                        {id: 2, text: '消化科'},
+                        {id: 1, text: '血液科'},
+                        {id: 1, text: '肾病科'},
+                        {id: 2, text: '内分泌科'},
+                        {id: 1, text: '风湿免疫科'}
+                    ]},
+                    {sign:"其它",data:[
+                        {id: 1, text: '呼吸内科'},
+                        {id: 2, text: '心内科'},
+                        {id: 1, text: '神内科'},
+                        {id: 2, text: '消化科'},
+                        {id: 1, text: '血液科'},
+                        {id: 1, text: '肾病科'},
+                        {id: 2, text: '内分泌科'},
+                        {id: 1, text: '风湿免疫科'}
+                    ]}
+                ];
+
+            },
+            //load
+            function () {
+                var initSel;
+                //代理人类型
+                $scope.doProxySelect = function () {
+                    var data = $scope.data.proxy;
+                    console.info(data);
                 }
 
+                //目前负责的区域：省份（直辖市）、  市（勾选，单选）*
+                $scope.doAreaSelect = function () {
+                    var params = {
 
-                //目前主要负责的科室
+                    };
+
+                }
+
+                //主要负责医院的类别 ：城市医院、 城市社区、 县级医院、第三终端(单选)*
+                $scope.doHospitalTypeSelect = function () {
+                    var params = {
+
+                    };
+                }
+
+                //主要负责医院的级别： 三级 、二级、一级、未分级（单选）*
+                $scope.doHospitalStageSelect = function () {
+                    var params = {
+
+                    };
+                }
+
+                //主要医院列举: 如 北大人民医院、北京301医院、山东齐鲁医院 (手写， 全称，可设5个框，用于分别填写医院 ）*
+
+                //目前主要负责的科室：下拉列表（*最多选择5个科室）*详见科室列表P6
                 $scope.doMajorOfficesSelect = function () {
                     var params = {
                         title: '主要负责的科室',
+                        opts: $scope.officesOptions
+                    }
+                    $rootScope.multiplePlusShow(params,'doMajorOfficesSelect');
+                }
+
+
+                //想代理哪种产品：处方药、检验设备、影像设备、高值耗材、低值耗材、POCT（可多选）*
+                $scope.doExpectSelect = function () {
+                    var params = {
+                        title: '期望代理商品',
                         opts: [
-                            {id: 1, text: '第1项'},
-                            {id: 2, text: '第二项'},
-                            {id: 1, text: '第一项'},
-                            {id: 2, text: '第二项'},
-                            {id: 1, text: '第一项'},
-                            {id: 1, text: '第一项'},
-                            {id: 2, text: '第二项'},
-                            {id: 1, text: '第一项'},
-                            {id: 2, text: '第二项'},
-                            {id: 1, text: '第一项'},
-                            {id: 2, text: '第二项'},
-                            {id: 1, text: '第一项'},
-                            {id: 2, text: '第二项'},
-                            {id: 1, text: '第一项'},
-                            {id: 2, text: '第二项'},
-                            {id: 1, text: '第一项'},
-                            {id: 2, text: '第二项'},
-                            {id: 2, text: '第10项'}
+                            {id: 1, text: '处方药'},
+                            {id: 2, text: '检验设备'},
+                            {id: 1, text: '影像设备'},
+                            {id: 2, text: '高值耗材'},
+                            {id: 1, text: '低值耗材'},
+                            {id: 1, text: 'POCT'}
                         ],
                     }
-                    $scope.$emit('multiple-plus-select-init', params);
+                    $rootScope.multiplePlusShow(params,'doExpectSelect');
                 }
+
+                //期望合作方式：  开发 、上量 、开发+上量(勾选，单选)*
+                $scope.doHospitalStageSelect = function () {
+                    var params = {
+
+                    };
+                    $scope.$emit('area-select-init', params);
+                }
+                //期望结算方式： 底价 、差价 、佣金制、面议（勾选，单选）*
+                $scope.doHospitalStageSelect = function () {
+                    var params = {
+
+                    };
+                    $scope.$emit('area-select-init', params);
+                }
+                //是否有区域代理意愿：是、否、以后再说（勾选，单选）
+
+
+
+
 
                 $scope.areaSelect = function () {
                     var params = {};
@@ -89,8 +171,11 @@ angular.module('terminalProxyPublish.controllers', [])
                         $scope.typeId_1 = false;
                     }
                 }
-            }, function () {//refresh
+            },
+            //refresh
+            function () {
                 //$scope.isActive = "1";
                 //initSel("1");
+                console.info("refresh...")
             })
     }])

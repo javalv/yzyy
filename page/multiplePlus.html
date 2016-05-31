@@ -12,12 +12,26 @@
     </button>
 </div>
 <ion-content class="has-header">
-    <ul class="list ">
-        <li ng-repeat="opt in multipleSelect.opts" class="item item-checkbox checkbox-assertive" ng-click="saveUserSex1()">
+    <ul class="list" ng-if="noDivide">
+        <li ng-repeat="opt in multipleSelect.opts" class="item item-checkbox checkbox-assertive">
             <label class="checkbox">
                 <input type="checkbox" ng-checked='userInfo.sex == {{opt.id}}'>
             </label>
             {{opt.text}}
         </li>
     </ul>
+
+
+    <div ng-repeat="item in multipleSelect.opts" ng-if="divide">
+        <div class="item item-divider item-assertive" ng-click="">{{item.sign}}</div>
+        <ul class="list" >
+            <li ng-repeat="opt in item.data" class="item item-checkbox checkbox-assertive">
+                <label class="checkbox">
+                    <input type="checkbox" ng-checked='userInfo.sex == {{opt.id}}'>
+                </label>
+                {{opt.text}}
+            </li>
+        </ul>
+    </div>
+
 </ion-content>

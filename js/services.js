@@ -126,13 +126,35 @@ angular.module("services", [])
 
         this.$get = function ($rootScope,$timeout) {
 
+            var initMapping = {};
             var service = {};
-            service.$ready = function ($scope,loadCtrl,refresh,mode) {
+
+            /**
+             *
+             * @param $scope
+             * @param init 每个页面只加载一次
+             * @param load 当使用缓存时，只加载一次
+             * @param refresh 页面每次切换都需要调用一次
+             * @param mode
+             */
+            service.$ready = function ($scope,init,load,refresh,mode) {
+
+                if(init){
+                    var key = $scope.id;
+                    var times = initMapping[key];
+                    if(typeof times == 'undefined' || times == null){//第一次
+                        initMapping[key] = 1;
+                        init();
+                    }
+                    else{
+                        initMapping[key] = initMapping[key] + 1;
+                    }
+                }
 
                 var interval = 1000;
                 //默认立即执行
                 if(typeof(mode) == 'undefined' || mode == LOADMODE.IMMEDIATELY){
-                    loadCtrl();
+                    load();
                     return ;
                 }else{
                     if(mode == LOADMODE.LONG){
@@ -144,7 +166,7 @@ angular.module("services", [])
 
                 $timeout(function(){
 
-                    loadCtrl();
+                    load();
 
                     refresh();
 
