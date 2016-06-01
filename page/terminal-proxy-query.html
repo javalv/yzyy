@@ -16,7 +16,31 @@
     </div>
     <div class="line" ng-class="{'1': 'line line-1', '2': 'line line-2' }[switchType.tabType] "
          style="position: absolute"></div>
-    <ion-content class="has-subheader" style="top:91px">
+    <div class="" style="position: absolute; top:91px; width: 100%">
+        <div class="query-select-div"><select ng-model="data.proxy" ng-change="doProxySelect()" class="query-select">
+            <option ng-repeat="item in proxyOptions" value="{{item.id}}">
+                {{item.text}}
+            </option>
+        </select></div>
+        <div class="query-select-div"><select ng-model="data.proxy" ng-change="doProxySelect()" class="query-select">
+            <option ng-repeat="item in proxyOptions" value="{{item.id}}">
+                {{item.text}}
+            </option>
+        </select></div>
+        <div class="query-select-div"><select ng-model="data.proxy" ng-change="doProxySelect()" class="query-select">
+            <option ng-repeat="item in proxyOptions" value="{{item.id}}">
+                {{item.text}}
+            </option>
+        </select></div>
+        <div class="query-select-div"><select ng-model="data.proxy" ng-change="doProxySelect()" class="query-select">
+            <option ng-repeat="item in proxyOptions" value="{{item.id}}">
+                {{item.text}}
+            </option>
+        </select></div>
+
+        <!--</div>-->
+    </div>
+    <ion-content class="has-subheader" style="top:130px">
         <div class="list">
 
             <a class="item" href="#" ng-show="switchType.hospital">
@@ -36,10 +60,7 @@
                 <p>处方药&nbsp;器械</p>
                 <p>河北&nbsp;|&nbsp;临床上量能力&nbsp;|&nbsp;开发+上量|&nbsp;连锁药店</p>
             </a>
-
         </div>
-
-
 
     </ion-content>
 </ion-view>

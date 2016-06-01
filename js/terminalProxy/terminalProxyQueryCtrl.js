@@ -6,6 +6,9 @@ angular.module('terminalProxyQuery.controllers', [])
             //init
             function () {
 
+                $scope.data = {
+                    proxy:'1'
+                };
 
                 //选择导致内容切换
                 $scope.switchType = {
@@ -97,6 +100,10 @@ angular.module('terminalProxyQuery.controllers', [])
                         $scope.switchType.hospital = false;
                         $scope.switchType.pharmacy = true;
                     }
+
+                }
+                
+                $scope.doProxySelect = function () {
 
                 }
 

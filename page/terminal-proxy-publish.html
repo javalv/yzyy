@@ -25,7 +25,7 @@
                         <div class="input-label">
                             代理人类型：
                         </div>
-                        <select ng-model="data.proxy" ng-change="doProxySelect()">
+                        <select ng-model="data.proxy" >
                             <option ng-repeat="item in proxyOptions" value="{{item.id}}">
                                 {{item.text}}
                             </option>
