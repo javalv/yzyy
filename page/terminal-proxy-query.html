@@ -1,0 +1,47 @@
+<ion-view view-title="终端代理查询页面">
+    <div class="bar bar-header bar-assertive">
+        <h1 class="title header-title">终端代理查询页面</h1>
+    </div>
+    <div class="bar bar-subheader ">
+        <div class="button-bar">
+            <a class="button button-clear button-dark"
+               ng-class="{'1': 'color-red', '2': 'color-black' }[switchType.tabType]" ng-click="switchClick('1')">
+                <span>医院</span>
+            </a>
+            <a class="button button-clear button-dark"
+               ng-class="{'2': 'color-red', '1': 'color-black' }[switchType.tabType]" ng-click="switchClick('2')">
+                <span>药店</span>
+            </a>
+        </div>
+    </div>
+    <div class="line" ng-class="{'1': 'line line-1', '2': 'line line-2' }[switchType.tabType] "
+         style="position: absolute"></div>
+    <ion-content class="has-subheader" style="top:91px">
+        <div class="list">
+
+            <a class="item" href="#" ng-show="switchType.hospital">
+                <h2>刘先生</h2>
+                <p>处方药&nbsp;检验设备&nbsp;高值耗材</p>
+                <p>北京&nbsp;|&nbsp;医保物价能力&nbsp;|&nbsp;开发|&nbsp;城市医院</p>
+            </a>
+
+            <a class="item" href="#" ng-show="switchType.pharmacy">
+                <h2>王先生</h2>
+                <p>处方药&nbsp;器械&nbsp;保健品</p>
+                <p>北京&nbsp;|&nbsp;医保物价能力&nbsp;|&nbsp;开发|&nbsp;连锁药店</p>
+            </a>
+
+            <a class="item" href="#" ng-show="switchType.pharmacy">
+                <h2>李先生</h2>
+                <p>处方药&nbsp;器械</p>
+                <p>河北&nbsp;|&nbsp;临床上量能力&nbsp;|&nbsp;开发+上量|&nbsp;连锁药店</p>
+            </a>
+
+        </div>
+
+
+
+    </ion-content>
+</ion-view>
+
+

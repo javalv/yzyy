@@ -66,3 +66,14 @@
     padding-top: 3px;
     padding-right: 7px;
 }
+
+.detail-label-title{
+    display: inline;
+    line-height: 12px;
+}
+
+.detail-label-text{
+    position: absolute;
+    right: 10px;
+    color: silver;
+}

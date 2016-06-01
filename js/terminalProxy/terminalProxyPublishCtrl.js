@@ -72,7 +72,19 @@ angular.module('terminalProxyPublish.controllers', [])
                     ]}
                 ];
 
+                $scope.expectOptions = [
+                    {id: 1, text: '处方药'},
+                    {id: 2, text: '检验设备'},
+                    {id: 1, text: '影像设备'},
+                    {id: 2, text: '高值耗材'},
+                    {id: 1, text: '低值耗材'},
+                    {id: 1, text: 'POCT'}
+                ];
 
+                $scope.contactsSexOptions = [
+                    {id:1,text:'男'},
+                    {id:2,text:'女'}
+                ]
 
             },
 
@@ -93,32 +105,6 @@ angular.module('terminalProxyPublish.controllers', [])
 
                 }
 
-                //代理人类型
-                $scope.doProxySelect = function () {
-                    var data = $scope.data.proxy;
-
-                }
-
-                //目前负责的区域：省份（直辖市）、  市（勾选，单选）*
-                $scope.doAreaSelect = function () {
-                    var initParams = {};
-                    $rootScope.areaShow(initParams,'doAreaSelect');
-                }
-
-                //主要负责医院的类别 ：城市医院、 城市社区、 县级医院、第三终端(单选)*
-                $scope.doHospitalTypeSelect = function () {
-                    var params = {
-
-                    };
-                }
-
-                //主要负责医院的级别： 三级 、二级、一级、未分级（单选）*
-                $scope.doHospitalStageSelect = function () {
-                    var params = {
-
-                    };
-                }
-
                 //主要医院列举: 如 北大人民医院、北京301医院、山东齐鲁医院 (手写， 全称，可设5个框，用于分别填写医院 ）*
 
                 //目前主要负责的科室：下拉列表（*最多选择5个科室）*详见科室列表P6
@@ -135,35 +121,24 @@ angular.module('terminalProxyPublish.controllers', [])
                 $scope.doExpectSelect = function () {
                     var params = {
                         title: '期望代理商品',
-                        opts: [
-                            {id: 1, text: '处方药'},
-                            {id: 2, text: '检验设备'},
-                            {id: 1, text: '影像设备'},
-                            {id: 2, text: '高值耗材'},
-                            {id: 1, text: '低值耗材'},
-                            {id: 1, text: 'POCT'}
-                        ],
+                        opts: $scope.expectOptions,
                     }
                     $rootScope.multiplePlusShow(params,'doExpectSelect');
                 }
 
-                //期望合作方式：  开发 、上量 、开发+上量(勾选，单选)*
-                $scope.doHospitalStageSelect = function () {
+                //行业经验
+                $scope.doIndustryExperienceSelect = function () {
                     var params = {
-
-                    };
-                    $scope.$emit('area-select-init', params);
+                        title: '行业经验',
+                        opts: $scope.expectOptions,
+                    }
+                    $rootScope.multipleShow(params,'doIndustryExperienceSelect');
                 }
-                //期望结算方式： 底价 、差价 、佣金制、面议（勾选，单选）*
-                $scope.doHospitalStageSelect = function () {
-                    var params = {
 
-                    };
-                    $scope.$emit('area-select-init', params);
+                //联系人性别
+                $scope.doContactsSexSelect = function () {
+
                 }
-                //是否有区域代理意愿：是、否、以后再说（勾选，单选）
-
-
 
 
 

@@ -4,109 +4,208 @@
     </div>
     <div class="bar bar-subheader ">
         <div class="button-bar">
-            <a class="button button-clear button-dark" ng-class="{'1': 'color-red', '2': 'color-black' }[switchType.tabType]" ng-click="switchClick('1')">
+            <a class="button button-clear button-dark"
+               ng-class="{'1': 'color-red', '2': 'color-black' }[switchType.tabType]" ng-click="switchClick('1')">
                 <span>医院</span>
             </a>
-            <a class="button button-clear button-dark" ng-class="{'2': 'color-red', '1': 'color-black' }[switchType.tabType]" ng-click="switchClick('2')">
+            <a class="button button-clear button-dark"
+               ng-class="{'2': 'color-red', '1': 'color-black' }[switchType.tabType]" ng-click="switchClick('2')">
                 <span>药店</span>
             </a>
         </div>
     </div>
-    <div class="line" ng-class="{'1': 'line line-1', '2': 'line line-2' }[switchType.tabType] " style="position: absolute"></div>
+    <div class="line" ng-class="{'1': 'line line-1', '2': 'line line-2' }[switchType.tabType] "
+         style="position: absolute"></div>
     <ion-content class="has-subheader" style="top:91px">
         <ion-list>
             <div class="item item-divider item-assertive">代理人信息</div>
             <div class="publish-padding">
                 <div class="list">
-                    <label class="item item-input item-select simple-label">
+                    <label class="item item-input item-select simple-label" ng-show="switchType.hospital">
                         <div class="input-label">
                             代理人类型：
                         </div>
-                        <select ng-model="data.proxy" ng-change="doProxySelect()" >
+                        <select ng-model="data.proxy" ng-change="doProxySelect()">
                             <option ng-repeat="item in proxyOptions" value="{{item.id}}">
                                 {{item.text}}
                             </option>
                         </select>
                     </label>
 
-                    <label class="item item-input simple-label">
+                    <label class="item item-input simple-label" ng-show="switchType.hospital">
                         <span class="input-label">
                             负责区域：
                         </span>
                         <button class="button button-bar-inline multiple-select"
-                                ng-click="doAreaSelect()">点击选择</button>
+                                ng-click="doAreaSelect()">点击选择
+                        </button>
                     </label>
 
-                    <label class="item item-input item-select simple-label">
+                    <label class="item item-input item-select simple-label" ng-show="switchType.hospital">
                         <div class="input-label">
                             主要负责医院的类别：
                         </div>
-                        <select ng-model="data.hospitalType" >
+                        <select ng-model="data.hospitalType">
                             <option ng-repeat="item in proxyOptions" value="{{item.id}}">
                                 {{item.text}}
                             </option>
                         </select>
                     </label>
-                    <label class="item item-input item-select simple-label">
+                    <label class="item item-input item-select simple-label" ng-show="switchType.hospital">
                         <div class="input-label">
                             主要负责医院的级别：
                         </div>
-                        <select ng-model="data.hospitalType" >
+                        <select ng-model="data.hospitalType">
                             <option ng-repeat="item in proxyOptions" value="{{item.id}}">
                                 {{item.text}}
                             </option>
                         </select>
                     </label>
 
-                    <label class="item item-input simple-label">
+                    <label class="item item-input simple-label" ng-show="switchType.hospital">
                         <span class="input-label">
                             主要医院列举：
                         </span>
                         <button class="button button-bar-inline multiple-select"
-                                ng-click="doAreaSelect()">点击选择</button>
+                                ng-click="doAreaSelect()">点击选择
+                        </button>
                     </label>
 
-                    <label class="item item-input simple-label">
+                    <label class="item item-input simple-label" ng-show="switchType.hospital">
                         <span class="input-label">
                             目前主要负责的科室：
                         </span>
                         <button class="button button-bar-inline multiple-select"
-                                ng-click="doMajorOfficesSelect()">点击选择</button>
+                                ng-click="doMajorOfficesSelect()">点击选择
+                        </button>
                     </label>
 
-
                 </div>
-
-
 
             </div>
         </ion-list>
         <ion-list>
-            <div class="item item-divider item-assertive">产品优势</div>
-            <div class="item">
-                <label class="item item-input simple-label">
-                    <span class="input-label">*产品名称:</span>
-                    <input type="text" placeholder="产品名称" ng-model="myAddress.consignee">
-                </label>
-                <label class="item item-input simple-label">
-                    <span class="input-label">*产品名称:</span>
-                    <input type="text" placeholder="产品名称" ng-model="myAddress.consignee">
-                </label>
+            <div class="item item-divider item-assertive">代理人目标</div>
+            <div class="publish-padding">
+                <div class="list">
+                    <label class="item item-input simple-label" ng-show="switchType.hospital">
+                        <span class="input-label">
+                            期望代理产品：
+                        </span>
+                        <button class="button button-bar-inline multiple-select"
+                                ng-click="doExpectSelect()">点击选择
+                        </button>
+                    </label>
+                    <label class="item item-input item-select simple-label" ng-show="switchType.hospital">
+                        <div class="input-label">
+                            期望合作方式：
+                        </div>
+                        <select ng-model="data.hospitalType">
+                            <option ng-repeat="item in proxyOptions" value="{{item.id}}">
+                                {{item.text}}
+                            </option>
+                        </select>
+                    </label>
+                    <label class="item item-input item-select simple-label" ng-show="switchType.hospital">
+                        <div class="input-label">
+                            期望结算方式:
+                        </div>
+                        <select ng-model="data.hospitalType">
+                            <option ng-repeat="item in proxyOptions" value="{{item.id}}">
+                                {{item.text}}
+                            </option>
+                        </select>
+                    </label>
+                    <label class="item item-input item-select simple-label" ng-show="switchType.hospital">
+                        <div class="input-label">
+                            是否有区域代理意愿:
+                        </div>
+                        <select ng-model="data.hospitalType">
+                            <option ng-repeat="item in proxyOptions" value="{{item.id}}">
+                                {{item.text}}
+                            </option>
+                        </select>
+                    </label>
+                </div>
             </div>
+        </ion-list>
 
+        <ion-list>
+            <div class="item item-divider item-assertive">代理人实力</div>
+            <div class="publish-padding">
+                <div class="list">
+                    <label class="item item-input simple-label" ng-show="switchType.hospital">
+                        <span class="input-label">
+                            行业经验：
+                        </span>
+                        <button class="button button-bar-inline multiple-select"
+                                ng-click="doIndustryExperienceSelect()">点击选择
+                        </button>
+                    </label>
+
+                    <label class="item item-input simple-label" ng-show="switchType.hospital">
+                        <span class="input-label">从业年限:</span>
+                        <input type="text" placeholder="从业年限" ng-model="myAddress.consignee">
+                    </label>
+
+                    <label class="item item-input simple-label" ng-show="switchType.hospital">
+                        <span class="input-label">
+                            代理商能力：
+                        </span>
+                        <button class="button button-bar-inline multiple-select"
+                                ng-click="doIndustryExperienceSelect()">点击选择
+                        </button>
+                    </label>
+                    <label class="item item-input simple-label" ng-show="switchType.hospital">
+                        <span class="input-label">
+                            学术能力：
+                        </span>
+                        <button class="button button-bar-inline multiple-select"
+                                ng-click="doIndustryExperienceSelect()">点击选择
+                        </button>
+                    </label>
+
+                    <label class="item item-input simple-label" ng-show="switchType.hospital">
+                        <span class="input-label">其他优势:</span>
+                        <input type="text" placeholder="其他优势" ng-model="myAddress.consignee">
+                    </label>
+
+                    <div class="item item-input item-select simple-label" ng-show="switchType.hospital">
+                        <span class="input-label">联系人:</span>
+                        <input type="text" placeholder="联系人" ng-model="myAddress.consignee">
+                        <select ng-model="data.hospitalType">
+                            <option ng-repeat="item in contactsSexOptions" value="{{item.id}}">
+                                {{item.text}}
+                            </option>
+                        </select>
+                    </div>
+
+                    <label class="item item-input simple-label" ng-show="switchType.hospital">
+                        <span class="input-label">手机:</span>
+                        <input type="text" placeholder="手机" ng-model="myAddress.consignee">
+                    </label>
+
+                    <label class="item item-input simple-label" ng-show="switchType.hospital">
+                        <span class="input-label">邮箱:</span>
+                        <input type="text" placeholder="邮箱" ng-model="myAddress.consignee">
+                    </label>
+
+                    <label class="item item-input item-select simple-label" ng-show="switchType.hospital">
+                        <div class="input-label">
+                            有效期:
+                        </div>
+                        <select ng-model="data.hospitalType">
+                            <option ng-repeat="item in proxyOptions" value="{{item.id}}">
+                                {{item.text}}
+                            </option>
+                        </select>
+                    </label>
+                </div>
+            </div>
         </ion-list>
 
         <ion-list>
             <button class="button button-assertive button-full">确认提交</button>
-        </ion-list>
-
-        <ion-list>
-            <div class="item item-divider item-assertive">招商信息</div>
-            <div class="item">
-                <button class="button button-assertive" ng-click="doMajorOfficesSelect1()">adfasdf</button>
-                <button class="button button-assertive" ng-click="doMajorOfficesSelect()">大列表多选</button>
-                <button class="button button-full button-bar-inline" ng-click="areaSelect()">asdfasdfasd</button>
-            </div>
         </ion-list>
 
 
