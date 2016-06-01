@@ -106,7 +106,7 @@ angular.module('root.controllers', [])
             }
             $scope.multipleSelect = {
                 title: newV.title,
-                positive: true,
+                assertive: true,
                 opts: newV.opts
             }
         });
@@ -139,7 +139,7 @@ angular.module('root.controllers', [])
 
             $scope.multipleSelect = {
                 title: newV.title,
-                positive: true,
+                assertive: true,
                 opts: newV.opts
             }
         });

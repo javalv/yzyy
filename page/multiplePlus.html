@@ -1,4 +1,4 @@
-<div class="bar bar-header" ng-class = "{'bar-assertive':multipleSelect.assertive,
+<div class="bar bar-header" ng-class="{'bar-assertive':multipleSelect.assertive,
                                             'bar-positive':multipleSelect.positive}">
     <h1 class="title title-left">{{multipleSelect.title}}</h1>
     <button class="button button-clear" style="position: absolute;
@@ -7,13 +7,13 @@
     bottom: 5px;">
         确认
     </button>
-    <button class="button button-clear" ng-click="modal.hide()" >
+    <button class="button button-clear" ng-click="modal.hide()">
         取消
     </button>
 </div>
 <ion-content class="has-header">
     <ul class="list" ng-if="noDivide">
-        <li ng-repeat="opt in multipleSelect.opts" class="item item-checkbox checkbox-assertive">
+        <li ng-repeat="opt in multipleSelect.opts" class="item item-checkbox checkbox-stable">
             <label class="checkbox">
                 <input type="checkbox" ng-checked='userInfo.sex == {{opt.id}}'>
             </label>
@@ -23,16 +23,26 @@
 
 
     <div ng-repeat="item in multipleSelect.opts" ng-if="divide">
-        <div class="item item-divider item-assertive" ng-click="">{{item.sign}}</div>
-        <ul class="list" >
-            <li ng-repeat="opt in item.data" class="item item-checkbox checkbox-assertive">
-                <label class="checkbox">
-                    <input type="checkbox" ng-checked='userInfo.sex == {{opt.id}}'>
-                </label>
-                {{opt.text}}
-            </li>
+        <div class="item item-divider item-stable" ng-click="">{{item.sign}}</div>
+        <div class="row div-clear">
 
-        </ul>
+            <div class="col div-clear border-clear" ng-repeat="opts in item.data">
+                <ul class="list">
+                    <li ng-repeat="opt in opts" class="item item-checkbox checkbox-stable border-horizontal-clear">
+                        <span>
+                            <label class="checkbox">
+                                <input type="checkbox" ng-checked='userInfo.sex == {{opt.id}}'>
+                            </label>
+                            {{opt.text}}
+                        </span>
+                    </li>
+
+                </ul>
+            </div>
+
+
+        </div>
+
     </div>
 
 </ion-content>

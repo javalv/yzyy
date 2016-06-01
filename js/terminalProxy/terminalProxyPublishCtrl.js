@@ -41,34 +41,52 @@ angular.module('terminalProxyPublish.controllers', [])
 
                 $scope.officesOptions = [
                     {sign:"内科",data:[
-                        {id: 1, text: '呼吸内科'},
-                        {id: 2, text: '心内科'},
-                        {id: 1, text: '神内科'},
-                        {id: 2, text: '消化科'},
-                        {id: 1, text: '血液科'},
-                        {id: 1, text: '肾病科'},
-                        {id: 2, text: '内分泌科'},
-                        {id: 1, text: '风湿免疫科'}
+                        [
+                            {id: 1, text: '呼吸内科'},
+                            {id: 2, text: '心内科'},
+                            {id: 1, text: '神内科'},
+                            {id: 2, text: '消化科'},
+                            {id: 3, text: '基数测试'}
+                        ],
+                        [
+                            {id: 1, text: '血液科'},
+                            {id: 1, text: '肾病科'},
+                            {id: 2, text: '内分泌科'},
+                            {id: 1, text: '风湿免疫科'},
+
+                        ]
                     ]},
                     {sign:"外科",data:[
-                        {id: 1, text: '呼吸内科'},
-                        {id: 2, text: '心内科'},
-                        {id: 1, text: '神内科'},
-                        {id: 2, text: '消化科'},
-                        {id: 1, text: '血液科'},
-                        {id: 1, text: '肾病科'},
-                        {id: 2, text: '内分泌科'},
-                        {id: 1, text: '风湿免疫科'}
+                        [
+                            {id: 1, text: '呼吸内科'},
+                            {id: 2, text: '心内科'},
+                            {id: 1, text: '神内科'},
+                            {id: 2, text: '消化科'},
+                            {id: 3, text: '基数测试'}
+                        ],
+                        [
+                            {id: 1, text: '血液科'},
+                            {id: 1, text: '肾病科'},
+                            {id: 2, text: '内分泌科'},
+                            {id: 1, text: '风湿免疫科'},
+
+                        ]
                     ]},
                     {sign:"其它",data:[
-                        {id: 1, text: '呼吸内科'},
-                        {id: 2, text: '心内科'},
-                        {id: 1, text: '神内科'},
-                        {id: 2, text: '消化科'},
-                        {id: 1, text: '血液科'},
-                        {id: 1, text: '肾病科'},
-                        {id: 2, text: '内分泌科'},
-                        {id: 1, text: '风湿免疫科'}
+                        [
+                            {id: 1, text: '呼吸内科'},
+                            {id: 2, text: '心内科'},
+                            {id: 1, text: '神内科'},
+                            {id: 2, text: '消化科'},
+                            {id: 3, text: '基数测试'}
+                        ],
+                        [
+                            {id: 1, text: '血液科'},
+                            {id: 1, text: '肾病科'},
+                            {id: 2, text: '内分泌科'},
+                            {id: 1, text: '风湿免疫科'},
+
+                        ]
                     ]}
                 ];
 

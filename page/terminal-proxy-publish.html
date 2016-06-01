@@ -1,7 +1,7 @@
 <ion-view view-title="终端代理发布页面">
-    <div class="bar bar-header bar-assertive">
-        <h1 class="title header-title">发布企业招商信息</h1>
-    </div>
+    <!--<div class="bar bar-header bar-assertive">-->
+        <!--<h1 class="title header-title">发布企业招商信息</h1>-->
+    <!--</div>-->
     <div class="bar bar-subheader ">
         <div class="button-bar">
             <a class="button button-clear button-dark"
@@ -16,9 +16,9 @@
     </div>
     <div class="line" ng-class="{'1': 'line line-1', '2': 'line line-2' }[switchType.tabType] "
          style="position: absolute"></div>
-    <ion-content class="has-subheader" style="top:91px">
+    <ion-content class="has-subheader has-footer" style="top:90px">
         <ion-list>
-            <div class="item item-divider item-assertive">代理人信息</div>
+            <div class="item item-divider item-stable">代理人信息</div>
             <div class="publish-padding">
                 <div class="list">
                     <label class="item item-input item-select simple-label" ng-show="switchType.hospital">
@@ -85,7 +85,7 @@
             </div>
         </ion-list>
         <ion-list>
-            <div class="item item-divider item-assertive">代理人目标</div>
+            <div class="item item-divider item-stable">代理人目标</div>
             <div class="publish-padding">
                 <div class="list">
                     <label class="item item-input simple-label" ng-show="switchType.hospital">
@@ -131,7 +131,7 @@
         </ion-list>
 
         <ion-list>
-            <div class="item item-divider item-assertive">代理人实力</div>
+            <div class="item item-divider item-stable">代理人实力</div>
             <div class="publish-padding">
                 <div class="list">
                     <label class="item item-input simple-label" ng-show="switchType.hospital">
@@ -204,12 +204,13 @@
             </div>
         </ion-list>
 
-        <ion-list>
-            <button class="button button-assertive button-full">确认提交</button>
-        </ion-list>
-
-
     </ion-content>
+    <ion-footer-bar class="bar bar-light">
+        <div class="button-bar"  >
+            <a class="button button-assertive " href="">确认发布</a>
+        </div>
+    </ion-footer-bar>
+
 </ion-view>
 
 

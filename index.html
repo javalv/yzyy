@@ -36,6 +36,16 @@
 -->
 <div id="b" style="display: none">
 
+    <ion-nav-bar class="bar bar-assertive">
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+
+        <!--<ion-nav-buttons side="right">-->
+            <!--<a class="button button-clear icon ion-android-add " ng-click="saveTenantSettings()"></a>-->
+        <!--</ion-nav-buttons>-->
+
+    </ion-nav-bar>
+
     <ion-nav-view></ion-nav-view>
 
 </div>
@@ -60,7 +70,7 @@
 
 <!-- 大数据多选 -->
 <script id="multiplePlusModal.html" type="text/ng-template">
-    <div class="modal multiple-modal" ng-controller="multiplePlusCtrl">
+    <div class="modal" ng-controller="multiplePlusCtrl">
         <div ng-include="'page/multiplePlus.html'"></div>
     </div>
 </script>

@@ -22,7 +22,7 @@ var app = angular.module('starter', ['ionic','services','directives','context','
             })
             //终端代理查询详情页
             .state('terminal-proxy-detail', {
-                url: '/terminal-proxy-detail',
+                url: '/terminal-proxy-detail/:id',
                 templateUrl: 'page/terminal-proxy-detail.html',
                 controller: 'terminalProxyQueryCtrl'
             })
