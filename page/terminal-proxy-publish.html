@@ -21,7 +21,7 @@
             <div class="item item-divider item-stable">代理人信息</div>
             <div class="publish-padding">
                 <div class="list">
-                    <label class="item item-input item-select simple-label" ng-show="switchType.hospital">
+                    <label class="item item-input item-select simple-label" >
                         <div class="input-label">
                             代理人类型：
                         </div>
@@ -32,7 +32,7 @@
                         </select>
                     </label>
 
-                    <label class="item item-input simple-label" ng-show="switchType.hospital">
+                    <label class="item item-input simple-label" >
                         <span class="input-label">
                             负责区域：
                         </span>
@@ -88,7 +88,7 @@
             <div class="item item-divider item-stable">代理人目标</div>
             <div class="publish-padding">
                 <div class="list">
-                    <label class="item item-input simple-label" ng-show="switchType.hospital">
+                    <label class="item item-input simple-label" >
                         <span class="input-label">
                             期望代理产品：
                         </span>
@@ -96,7 +96,7 @@
                                 ng-click="doExpectSelect()">点击选择
                         </button>
                     </label>
-                    <label class="item item-input item-select simple-label" ng-show="switchType.hospital">
+                    <label class="item item-input item-select simple-label" >
                         <div class="input-label">
                             期望合作方式：
                         </div>
@@ -106,7 +106,7 @@
                             </option>
                         </select>
                     </label>
-                    <label class="item item-input item-select simple-label" ng-show="switchType.hospital">
+                    <label class="item item-input item-select simple-label" >
                         <div class="input-label">
                             期望结算方式:
                         </div>
@@ -143,12 +143,29 @@
                         </button>
                     </label>
 
-                    <label class="item item-input simple-label" ng-show="switchType.hospital">
+                    <div class="item item-input item-select simple-label" ng-show="switchType.pharmacy">
+                        <span class="input-label">优势资源:</span>
+                        <select ng-model="data.hospitalType">
+                            <option ng-repeat="item in contactsSexOptions" value="{{item.id}}">
+                                {{item.text}}
+                            </option>
+                        </select>
+                    </div>
+                    <label class="item item-input simple-label" ng-show="switchType.pharmacy">
+                        <span class="input-label">
+                            主要药店列举：
+                        </span>
+                        <button class="button button-bar-inline multiple-select"
+                                ng-click="doIndustryExperienceSelect()">点击选择
+                        </button>
+                    </label>
+
+                    <label class="item item-input simple-label" >
                         <span class="input-label">从业年限:</span>
                         <input type="text" placeholder="从业年限" ng-model="myAddress.consignee">
                     </label>
 
-                    <label class="item item-input simple-label" ng-show="switchType.hospital">
+                    <label class="item item-input simple-label" >
                         <span class="input-label">
                             代理商能力：
                         </span>
@@ -156,7 +173,7 @@
                                 ng-click="doIndustryExperienceSelect()">点击选择
                         </button>
                     </label>
-                    <label class="item item-input simple-label" ng-show="switchType.hospital">
+                    <label class="item item-input simple-label">
                         <span class="input-label">
                             学术能力：
                         </span>
@@ -165,12 +182,12 @@
                         </button>
                     </label>
 
-                    <label class="item item-input simple-label" ng-show="switchType.hospital">
+                    <label class="item item-input simple-label" >
                         <span class="input-label">其他优势:</span>
                         <input type="text" placeholder="其他优势" ng-model="myAddress.consignee">
                     </label>
 
-                    <div class="item item-input item-select simple-label" ng-show="switchType.hospital">
+                    <div class="item item-input item-select simple-label">
                         <span class="input-label">联系人:</span>
                         <input type="text" placeholder="联系人" ng-model="myAddress.consignee">
                         <select ng-model="data.hospitalType">
@@ -180,17 +197,17 @@
                         </select>
                     </div>
 
-                    <label class="item item-input simple-label" ng-show="switchType.hospital">
+                    <label class="item item-input simple-label" >
                         <span class="input-label">手机:</span>
                         <input type="text" placeholder="手机" ng-model="myAddress.consignee">
                     </label>
 
-                    <label class="item item-input simple-label" ng-show="switchType.hospital">
+                    <label class="item item-input simple-label" >
                         <span class="input-label">邮箱:</span>
                         <input type="text" placeholder="邮箱" ng-model="myAddress.consignee">
                     </label>
 
-                    <label class="item item-input item-select simple-label" ng-show="switchType.hospital">
+                    <label class="item item-input item-select simple-label" >
                         <div class="input-label">
                             有效期:
                         </div>
