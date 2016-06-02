@@ -16,6 +16,7 @@
     <script src="js/controllers.js" defer="defer"></script>
     <script src="js/services.js" defer="defer"></script>
     <script src="js/directives.js" defer="defer"></script>
+    <script src="js/common/dic.js" defer="defer"></script>
     <script src="js/common/common.js" defer="defer"></script>
     <script src="js/common/context.js" defer="defer"></script>
     <script src="js/common/contextManager.js" defer="defer"></script>
@@ -79,5 +80,12 @@
 <script id="areaModal.html" type="text/ng-template">
     <div class="modal multiple-modal" ng-controller="areaCtrl">
         <div ng-include="'page/area.html'"></div>
+    </div>
+</script>
+
+<!-- 手动填写 -->
+<script id="listDiyModal.html" type="text/ng-template">
+    <div class="modal" ng-controller="listDiyCtrl">
+        <div ng-include="'page/listDiy.html'"></div>
     </div>
 </script>

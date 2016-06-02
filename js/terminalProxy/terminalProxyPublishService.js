@@ -4,7 +4,7 @@ angular.module('terminalProxyPublish.service', [])
         return {
             //保存
             save: function () {
-
+                console.info("$TerminalProxyPublishService...")
             }
 
         };

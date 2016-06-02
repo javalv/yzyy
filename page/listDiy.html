@@ -1,0 +1,25 @@
+<ion-content  scroll="false">
+    <div class="bar bar-header" ng-class = "{'bar-assertive':params.assertive,
+                                            'bar-positive':params.positive}">
+        <h1 class="title title-left">{{params.title}}</h1>
+        <button class="button button-clear" style="position: absolute;
+    top: 5px;
+    right: 50px;
+    bottom: 5px;">
+            确认
+        </button>
+        <button class="button button-clear" ng-click="modal.hide()" >
+            取消
+        </button>
+    </div>
+    <div class="list has-header">
+        <ul>
+            <label class="item item-input simple-label" ng-repeat="opt in params.opts">
+                <span class="input-label">{{opt.text}}</span>
+                <input type="text" placeholder="{{opt.text}}" ng-model="opt.value">
+            </label>
+        </ul>
+    </div>
+    <div style="height: 28px"></div>
+</ion-content>
+

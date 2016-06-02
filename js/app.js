@@ -1,5 +1,5 @@
 // Ionic Starter App
-var app = angular.module('starter', ['ionic','services','directives','context','contextManager',
+var app = angular.module('starter', ['ionic','services','directives','context','contextManager','dic',
     'root.controllers',
     'terminalProxyPublish.controllers','terminalProxyPublish.service',
     'terminalProxyQuery.controllers','terminalProxyQuery.service'])

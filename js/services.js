@@ -3,12 +3,10 @@ angular.module("services", [])
     .provider('$httpService', function () {
 
         //可以在config里面配置的属性
-        //this.domain = 'http://localhost:8080';
-        //this.domain = 'http://220.249.1.50:8088';
-        //this.domain = 'http://m.yglpin.com';
         this.source = 'wap';
         this.sign = null;
         this.timeout = 10000;
+        this.domain = ""
 
         this.$get = function ($http, $q) {
 

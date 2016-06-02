@@ -1,6 +1,7 @@
 angular.module('terminalProxyPublish.controllers', [])
 
-    .controller('terminalProxyPublishCtrl', ['$scope','$rootScope','$switchLoad', function ($scope, $rootScope , $switchLoad) {
+    .controller('terminalProxyPublishCtrl', ['$scope','$rootScope','$switchLoad','$DicService',
+        function ($scope, $rootScope , $switchLoad, $DicService) {
 
         $switchLoad.$ready($scope,
             //init
@@ -25,85 +26,36 @@ angular.module('terminalProxyPublish.controllers', [])
                 };
 
                 //代理人类型: 药品公司 、器械公司 、业务代表、 自然人 (单选)
-                $scope.proxyOptions = [{
-                    id: '1',
-                    text: '药品公司'
-                }, {
-                    id: '2',
-                    text: '器械公司'
-                }, {
-                    id: '3',
-                    text: '业务代表'
-                }, {
-                    id: '4',
-                    text: '自然人'
-                }];
+                $DicService.getProxyOptions().then(function (result) {
+                    $scope.proxyOptions = result.data;
+                });
 
-                $scope.officesOptions = [
-                    {sign:"内科",data:[
-                        [
-                            {id: 1, text: '呼吸内科'},
-                            {id: 2, text: '心内科'},
-                            {id: 1, text: '神内科'},
-                            {id: 2, text: '消化科'},
-                            {id: 3, text: '基数测试'}
-                        ],
-                        [
-                            {id: 1, text: '血液科'},
-                            {id: 1, text: '肾病科'},
-                            {id: 2, text: '内分泌科'},
-                            {id: 1, text: '风湿免疫科'},
+                //办公负责区
+                $DicService.getOfficesOptions().then(function (result) {
+                    $scope.officesOptions = result.data;
+                });
 
-                        ]
-                    ]},
-                    {sign:"外科",data:[
-                        [
-                            {id: 1, text: '呼吸内科'},
-                            {id: 2, text: '心内科'},
-                            {id: 1, text: '神内科'},
-                            {id: 2, text: '消化科'},
-                            {id: 3, text: '基数测试'}
-                        ],
-                        [
-                            {id: 1, text: '血液科'},
-                            {id: 1, text: '肾病科'},
-                            {id: 2, text: '内分泌科'},
-                            {id: 1, text: '风湿免疫科'},
+                $DicService.getExpectOptions().then(function (result) {
+                    $scope.expectOptions = result.data;
+                });
 
-                        ]
-                    ]},
-                    {sign:"其它",data:[
-                        [
-                            {id: 1, text: '呼吸内科'},
-                            {id: 2, text: '心内科'},
-                            {id: 1, text: '神内科'},
-                            {id: 2, text: '消化科'},
-                            {id: 3, text: '基数测试'}
-                        ],
-                        [
-                            {id: 1, text: '血液科'},
-                            {id: 1, text: '肾病科'},
-                            {id: 2, text: '内分泌科'},
-                            {id: 1, text: '风湿免疫科'},
+                //联系人性别
+                $DicService.getSexOptions().then(function (result) {
+                    $scope.contactsSexOptions = result.data;
+                });
 
-                        ]
-                    ]}
-                ];
+                //代理商能力
+                $DicService.getProxyPowerOptions().then(function (result) {
+                    $scope.proxyPowerOptions = result.data;
+                });
 
-                $scope.expectOptions = [
-                    {id: 1, text: '处方药'},
-                    {id: 2, text: '检验设备'},
-                    {id: 1, text: '影像设备'},
-                    {id: 2, text: '高值耗材'},
-                    {id: 1, text: '低值耗材'},
-                    {id: 1, text: 'POCT'}
-                ];
-
-                $scope.contactsSexOptions = [
-                    {id:1,text:'男'},
-                    {id:2,text:'女'}
+                $scope.hospitals = [
+                    {id:1,text:"第一项",value:""},
+                    {id:1,text:"第二项",value:""},
+                    {id:1,text:"第三项",value:""},
+                    {id:1,text:"第四项",value:""},
+                    {id:1,text:"第五项",value:""}
                 ]
-
             },
 
             //load
@@ -124,6 +76,13 @@ angular.module('terminalProxyPublish.controllers', [])
                 }
 
                 //主要医院列举: 如 北大人民医院、北京301医院、山东齐鲁医院 (手写， 全称，可设5个框，用于分别填写医院 ）*
+                $scope.doMajorHospital = function () {
+                    var params = {
+                        title: '主要医院列举',
+                        opts: $scope.hospitals
+                    }
+                    $rootScope.listDiyShow(params);
+                }
 
                 //目前主要负责的科室：下拉列表（*最多选择5个科室）*详见科室列表P6
                 $scope.doMajorOfficesSelect = function () {
@@ -134,14 +93,22 @@ angular.module('terminalProxyPublish.controllers', [])
                     $rootScope.multiplePlusShow(params,'doMajorOfficesSelect');
                 }
 
-
                 //想代理哪种产品：处方药、检验设备、影像设备、高值耗材、低值耗材、POCT（可多选）*
                 $scope.doExpectSelect = function () {
                     var params = {
                         title: '期望代理商品',
                         opts: $scope.expectOptions,
                     }
-                    $rootScope.multiplePlusShow(params,'doExpectSelect');
+                    $rootScope.multipleShow(params,'doExpectSelect');
+                }
+
+                //负责区域
+                $scope.doAreaSelect = function () {
+                    var params = {
+                        title: '负责区域',
+                        opts: $scope.expectOptions,
+                    }
+                    $rootScope.areaShow(params);
                 }
 
                 //行业经验
@@ -150,12 +117,16 @@ angular.module('terminalProxyPublish.controllers', [])
                         title: '行业经验',
                         opts: $scope.expectOptions,
                     }
-                    $rootScope.multipleShow(params,'doIndustryExperienceSelect');
+                    $rootScope.multiplePlusShow(params,'doIndustryExperienceSelect');
                 }
 
-                //联系人性别
-                $scope.doContactsSexSelect = function () {
-
+                //行业经验
+                $scope.doProxyPowerSelect = function () {
+                    var params = {
+                        title: '代理商能力',
+                        opts: $scope.proxyPowerOptions,
+                    }
+                    $rootScope.multipleShow(params,'doProxyPowerSelect');
                 }
 
 
@@ -163,8 +134,6 @@ angular.module('terminalProxyPublish.controllers', [])
             },
             //refresh
             function () {
-                //$scope.isActive = "1";
-                //initSel("1");
                 console.info("refresh...")
             })
     }])
