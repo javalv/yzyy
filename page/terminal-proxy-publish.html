@@ -8,12 +8,14 @@
                ng-class="{'1': 'color-red', '2': 'color-black' }[switchType.tabType]" ng-click="switchClick('1')">
                 <span>医院</span>
             </a>
+
             <a class="button button-clear button-dark"
                ng-class="{'2': 'color-red', '1': 'color-black' }[switchType.tabType]" ng-click="switchClick('2')">
                 <span>药店</span>
             </a>
         </div>
     </div>
+    <span style="height: 30px;width: 2px;position: absolute;top: 44px;"></span>
     <div class="line" ng-class="{'1': 'line line-1', '2': 'line line-2' }[switchType.tabType] "
          style="position: absolute"></div>
     <ion-content class="has-subheader has-footer" style="top:90px">
@@ -190,6 +192,7 @@
                     <div class="item item-input item-select simple-label">
                         <span class="input-label">联系人:</span>
                         <input type="text" placeholder="联系人" ng-model="myAddress.consignee">
+                        <!--<span style="width: 2px;height: 20px"></span>-->
                         <select ng-model="data.hospitalType">
                             <option ng-repeat="item in contactsSexOptions" value="{{item.id}}">
                                 {{item.text}}

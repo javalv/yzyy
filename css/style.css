@@ -69,7 +69,8 @@ div.div-clear{
     line-height: 34px;
     right:0px;
     position: absolute;
-    /*width: 200px;*/
+    width: 120px;
+    font-size: 14px;
 }
 
 .publish-padding{
