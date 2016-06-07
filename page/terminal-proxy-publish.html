@@ -8,17 +8,16 @@
                ng-class="{'1': 'color-red', '2': 'color-black' }[switchType.tabType]" ng-click="switchClick('1')">
                 <span>医院</span>
             </a>
-
+            <a class="division-line">
+            </a>
             <a class="button button-clear button-dark"
                ng-class="{'2': 'color-red', '1': 'color-black' }[switchType.tabType]" ng-click="switchClick('2')">
                 <span>药店</span>
             </a>
         </div>
     </div>
-    <span style="height: 30px;width: 2px;position: absolute;top: 44px;"></span>
-    <div class="line" ng-class="{'1': 'line line-1', '2': 'line line-2' }[switchType.tabType] "
-         style="position: absolute"></div>
-    <ion-content class="has-subheader has-footer" style="top:90px">
+    <div class="line position-absolute" ng-class="{'1': 'line line-1', '2': 'line line-2' }[switchType.tabType] "></div>
+    <ion-content class="has-subheader has-footer publish-content">
         <ion-list>
             <div class="item item-divider item-stable">代理人信息</div>
             <div class="publish-padding">
@@ -225,11 +224,15 @@
         </ion-list>
 
     </ion-content>
-    <ion-footer-bar class="bar bar-light">
-        <div class="button-bar"  >
-            <a class="button button-assertive " style="margin-left: 5px;margin-right: 5px" href="">确认发布</a>
-            <a class="button button-assertive " style="margin-left: 5px;margin-right: 5px" href="#/terminal-proxy-detail/1">预览</a>
-        </div>
+    <ion-footer-bar class="">
+        <a class="button button-assertive" style="width: 49%" href="#/terminal-proxy-detail/1">确认发布</a>
+        <a class="button button-assertive" style="width: 49%" href="#/terminal-proxy-detail/1">预览</a>
+
+        <!--<div class="button-bar"  >-->
+            <!---->
+            <!--<a class="button button-assertive" style="margin-left: 5px;margin-right: 2px" href="">确认发布</a>-->
+            <!--<a class="button button-assertive" style="margin-left: 2px;margin-right: 5px" href="#/terminal-proxy-detail/1">预览</a>-->
+        <!--</div>-->
     </ion-footer-bar>
 
 </ion-view>

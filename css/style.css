@@ -12,7 +12,6 @@
     filter: Alpha(opacity=20);
 }
 
-
 .multiple-content {
     filter: alpha(opacity=10);
     -moz-opacity: 1;
@@ -21,75 +20,81 @@
     top: auto;
 }
 
+.division-line {
+    height: 22px;
+    width: 1px;
+    margin: auto;
+    background-color: darkgray
+}
 
-.line{
+.line {
     display: block;
     background: red;
     height: 2px;
     width: 50%;
-    top:88px;
+    top: 88px;
     transition: margin-left 0.6s;
     -webkit-transition: margin-left 0.6s;
     -o-transition: margin-left 0.6s;
-    -moz-transition: margin-left 0.6s ;
+    -moz-transition: margin-left 0.6s;
 }
 
-.line-1{
+.line-1 {
     margin-left: 0%;
 }
 
-.line-2{
+.line-2 {
     margin-left: 50%;
 }
 
-.color-red{
+.color-red {
     color: red !important;
 }
 
-.color-black{
+.color-black {
     color: black !important;;
 }
 
-.border-clear{
+.border-clear {
     border: none;
 }
 
-div li.border-horizontal-clear{
-    border-left:0;
-    border-right:0;
+div li.border-horizontal-clear {
+    border-left: 0;
+    border-right: 0;
 }
 
-div.div-clear{
+div.div-clear {
     padding: 0px;
     margin: 0px;
 }
 
-.button.multiple-select{
+.button.multiple-select {
     min-height: 0px;
     line-height: 34px;
-    right:0px;
+    right: 0px;
     position: absolute;
     width: 120px;
     font-size: 14px;
 }
 
-.publish-padding{
+.publish-padding {
     padding-top: 3px;
     padding-right: 7px;
 }
 
-.detail-label-title{
+.detail-label-title {
     display: inline;
     line-height: 12px;
 }
 
-.detail-label-text{
+.detail-label-text {
     position: absolute;
     right: 10px;
     color: silver;
 }
 
-.query-select{
+.query-select {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -110,10 +115,11 @@ div.div-clear{
     direction: rtl;
 }
 
-.query-select-div{
+.query-select-div {
     display: inline;
     width: 25%;
 }
+
 .query-select-div:after {
     position: absolute;
     /*top: 50%;*/
@@ -128,3 +134,20 @@ div.div-clear{
     content: "";
     pointer-events: none;
 }
+
+.publish-content {
+    top: 90px;
+}
+
+.position-absolute {
+    position: absolute;
+}
+
+/*.bar-submit{*/
+    /*padding: 2px;*/
+/*}*/
+
+/*.bar-submit a {*/
+    /*font-size: 16px !important;*/
+    /*line-height: 34px !important;*/
+/*}*/
