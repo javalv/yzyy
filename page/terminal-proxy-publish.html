@@ -24,7 +24,7 @@
                 <div class="list">
                     <label class="item item-input item-select simple-label" >
                         <div class="input-label">
-                            代理人类型：
+                            <i class="icon ion-android-star-outline">代理人类型：</i>
                         </div>
                         <select ng-model="data.proxy" >
                             <option ng-repeat="item in proxyOptions" value="{{item.id}}">
@@ -34,9 +34,9 @@
                     </label>
 
                     <label class="item item-input simple-label" >
-                        <span class="input-label">
-                            负责区域：
-                        </span>
+                        <div class="input-label">
+                            <i class="icon ion-information">&nbsp;负责区域：</i>
+                        </div>
                         <button class="button button-bar-inline multiple-select"
                                 ng-click="doAreaSelect()">点击选择
                         </button>
@@ -44,7 +44,7 @@
 
                     <label class="item item-input item-select simple-label" ng-show="switchType.hospital">
                         <div class="input-label">
-                            主要负责医院的类别：
+                            <i class="icon ion-alert">&nbsp;主要负责医院的类别：</i>
                         </div>
                         <select ng-model="data.hospitalType">
                             <option ng-repeat="item in proxyOptions" value="{{item.id}}">
@@ -117,15 +117,24 @@
                             </option>
                         </select>
                     </label>
-                    <label class="item item-input item-select simple-label" ng-show="switchType.hospital">
-                        <div class="input-label">
+                    <label class="item item-toggle simple-label" ng-show="switchType.hospital">
                             是否有区域代理意愿:
-                        </div>
-                        <select ng-model="data.hospitalType">
-                            <option ng-repeat="item in proxyOptions" value="{{item.id}}">
-                                {{item.text}}
-                            </option>
-                        </select>
+                            <label class="toggle toggle-assertive">
+                                <input type="checkbox">
+                                <div class="track">
+                                    <div class="handle"></div>
+                                </div>
+                            </label>
+
+
+                        <!--<div class="input-label">-->
+                            <!--是否有区域代理意愿:-->
+                        <!--</div>-->
+                        <!--<select ng-model="data.hospitalType">-->
+                            <!--<option ng-repeat="item in proxyOptions" value="{{item.id}}">-->
+                                <!--{{item.text}}-->
+                            <!--</option>-->
+                        <!--</select>-->
                     </label>
                 </div>
             </div>
@@ -225,7 +234,7 @@
 
     </ion-content>
     <ion-footer-bar class="">
-        <a class="button button-assertive" style="width: 49%" href="#/terminal-proxy-detail/1">确认发布</a>
+        <a class="button button-assertive" style="width: 49%" ng-click="publish()">确认发布</a>
         <a class="button button-assertive" style="width: 49%" href="#/terminal-proxy-detail/1">预览</a>
 
         <!--<div class="button-bar"  >-->

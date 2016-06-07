@@ -1,5 +1,6 @@
 // Ionic Starter App
-var app = angular.module('starter', ['ionic','services','directives','context','contextManager','dic',
+var app = angular.module('starter', ['ionic','services','directives',
+    'context','contextManager','dic','notice',
     'root.controllers',
     'terminalProxyPublish.controllers','terminalProxyPublish.service',
     'terminalProxyQuery.controllers','terminalProxyQuery.service'])
@@ -30,6 +31,6 @@ var app = angular.module('starter', ['ionic','services','directives','context','
 
         // if none of the above states are matched, use this as the fallback
         //$urlRouterProvider.otherwise('/terminal-proxy-publish');
-        //$urlRouterProvider.otherwise('/terminal-proxy-query');
-        $urlRouterProvider.otherwise('/terminal-proxy-detail');
+        $urlRouterProvider.otherwise('/terminal-proxy-query');
+        //$urlRouterProvider.otherwise('/terminal-proxy-detail');
     });

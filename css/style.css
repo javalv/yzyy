@@ -143,6 +143,44 @@ div.div-clear {
     position: absolute;
 }
 
+label.simple-label input{
+    text-align: right;
+}
+
+div.simple-label input{
+    text-align: center;
+}
+
+h2.query-list-title{
+    margin-top: 8px;
+    margin-bottom: 5px;
+}
+
+.icon.ion-android-star-outline{
+    margin-left: -10px;
+}
+.icon.ion-android-star-outline:before{
+    font-size: 12px;
+    color: red;
+}
+
+.icon.ion-information{
+    margin-left: -6px;
+}
+.icon.ion-information:before{
+    /*font-size: 12px;*/
+    color: red;
+}
+
+.icon.ion-alert{
+    margin-left: -6px;
+}
+.icon.ion-alert:before{
+    /*font-size: 12px;*/
+    color: red;
+}
+
+
 /*.bar-submit{*/
     /*padding: 2px;*/
 /*}*/

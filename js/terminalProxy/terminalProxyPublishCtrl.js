@@ -1,7 +1,7 @@
 angular.module('terminalProxyPublish.controllers', [])
 
-    .controller('terminalProxyPublishCtrl', ['$scope','$rootScope','$switchLoad','$DicService',
-        function ($scope, $rootScope , $switchLoad, $DicService) {
+    .controller('terminalProxyPublishCtrl', ['$scope','$rootScope','$switchLoad','$DicService','$Notice',
+        function ($scope, $rootScope , $switchLoad, $DicService,$Notice) {
 
         $switchLoad.$ready($scope,
             //init
@@ -129,7 +129,9 @@ angular.module('terminalProxyPublish.controllers', [])
                     $rootScope.multipleShow(params,'doProxyPowerSelect');
                 }
 
-
+                $scope.publish = function () {
+                    $Notice.show($scope,"发布成功","我们将在1个工作日内审核您的信息!","button-assertive");
+                }
 
             },
             //refresh

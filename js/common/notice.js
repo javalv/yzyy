@@ -1,37 +1,39 @@
 angular.module('notice', [])
 
-    .factory('$Notice', ['$ionicPopup', '$timeout', '$EnvService', function ($ionicPopup, $timeout, $EnvService) {
+    .factory('$Notice', ['$ionicPopup', '$timeout', function ($ionicPopup, $timeout) {
         return {
             //信息提示
-            show: function ($scope, title, content) {
+            show: function ($scope, title, content, clazz) {
 
-                var env = $EnvService.currentEnv();
-                if (env == GLOBAL.ANDROID) {
-                    NativeDelegate.toase(content);
-                } else {
-                    var myPopup = $ionicPopup.show({
-                        template: '<p class="text-center"><i class="icon ion-information-circled"></i> ' + '<span class="margin-left-5">' + content + '</span></p>',
-                        title: title,
-                        //subTitle: 'Please use normal things',
-                        scope: $scope
+                //var myPopup = $ionicPopup.show({
+                //    //template: '<p class="text-center"><i class="icon ion-information-circled"></i> ' + '<span class="margin-left-5">' + content + '</span></p>',
+                //    template:'<p>' + content + '</p>',
+                //    title: title,
+                //    //subTitle: 'Please use normal things',
+                //    scope: $scope
+                //
+                //});
 
-                    });
-                    myPopup.then(function (res) {
-                    });
-                    $timeout(function () {
-                        myPopup.close();
-                    }, 2000);
-                }
+                var myPopup = $ionicPopup.alert({
+                    title: title,
+                    template: content,
+                    okText:'关闭',
+                    okType:clazz
+                });
+
+                $timeout(function () {
+                    myPopup.close();
+                }, 5000);
 
             },
 
             //数据加载
             loadPopup: {
 
-                open:function ($scope,text){
+                open: function ($scope, text) {
                     var myPopup = $ionicPopup.show({
                         template: '<p class="text-center"><ion-spinner icon="ios"></ion-spinner>' + '</p>' +
-                                    '<p class="text-center">' + text + '</p>',
+                        '<p class="text-center">' + text + '</p>',
                         scope: $scope
                     });
                     myPopup.then(function (res) {
@@ -39,12 +41,11 @@ angular.module('notice', [])
                     return myPopup;
                 },
 
-                close:function(myPopup){
+                close: function (myPopup) {
                     myPopup.close();
                 }
 
             }
-
 
 
         }
